@@ -86,18 +86,19 @@ $park = $_GET["park"];
 
     <table class="table">
 
-        <table>
-            <thead>
-                <tr>
-                    <th class="px-3" scope="col">Nome</th>
-                    <th class="px-3" scope="col">Descrizione</th>
-                    <th class="px-3" scope="col">Parcheggio</th>
-                    <th class="px-3" scope="col">Voto</th>
-                    <th class="px-3" scope="col">Distanza da centro</th>
-                </tr>
-            </thead>
+
+        <thead>
+            <tr>
+                <th class="px-3" scope="col">Nome</th>
+                <th class="px-3" scope="col">Descrizione</th>
+                <th class="px-3" scope="col">Parcheggio</th>
+                <th class="px-3" scope="col">Voto</th>
+                <th class="px-3" scope="col">Distanza da centro</th>
+            </tr>
+        </thead>
+        <tbody>
             <?php foreach ($hotels as $hotel) {
-                if ($park == "" ||  $park == "0" && !$hotel["parking"] || !isset($park) || $park == "1" && $hotel["parking"]) {
+                if ($park == "" || $park == "0" && !$hotel["parking"] || !isset($park) || $park == "1" && $hotel["parking"]) {
                     if ($vote == "" || $vote <= $hotel["vote"] || !isset($vote)) {
                         ?>
                         <tr>
@@ -117,15 +118,15 @@ $park = $_GET["park"];
                 }
             }
             ?>
+        </tbody>
 
 
+    </table>
 
-        </table>
 
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
